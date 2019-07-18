@@ -78,10 +78,12 @@ gulp.task('watch', function(){                                      // диви�
     gulp.watch('app/scss/**/*.scss', gulp.series('sass'));          // шлях до паки з scss
     gulp.watch('app/js/**/*.js', gulp.series('jshint'));            // шдях до папки з js
     gulp.watch('app/img/**/*.', gulp.series('compress'));           // шлях до пакпи images
+    gulp.watch('app/fonts/**/*.', gulp.series('fonts'));           // шлях до пакпи images
+
 });
 
 
-gulp.task('build', gulp.parallel('sass','html','jshint', 'compress'));          // будує змінами
+gulp.task('build', gulp.parallel('sass','html','jshint', 'compress', 'fonts'));          // будує змінами
 
 gulp.task('default', gulp.series(                                   // паралельно запускає
     gulp.parallel('watch', 'build', 'browserSync')
